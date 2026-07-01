@@ -7,7 +7,8 @@ const requiredEnv = [
 
 for (const key of requiredEnv) {
     if (!process.env[key]) {
-        throw new Error(`Missing required environment variable: ${key}`);
+        console.error(`Missing required environment variable: ${key}`);
+        process.exit(1);
     }
 }
 

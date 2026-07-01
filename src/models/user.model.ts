@@ -24,6 +24,7 @@ const userSchema = new Schema(
             unique: true,
             index: true,
             trim: true,
+            match: [/^\d{10}$/, 'Phone number must be exactly 10 digits'],
         },
     },
     {
