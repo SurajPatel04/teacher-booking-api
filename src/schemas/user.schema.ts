@@ -2,15 +2,15 @@ import { z } from "zod";
 
 export const createUserSchema = z.object({
     fullName: z
-        .string({ required_error: "Full name is required" })
+        .string({ message: "Full name is required" })
         .trim()
-        .min(2, "Full name must be at least 2 characters"),
+        .min(2, { message: "Full name must be at least 2 characters" }),
     email: z
-        .string({ required_error: "Email is required" })
+        .string({ message: "Email is required" })
         .trim()
-        .email("Invalid email format"),
+        .email({ message: "Invalid email format" }),
     phone: z
-        .string({ required_error: "Phone is required" })
+        .string({ message: "Phone is required" })
         .trim()
-        .regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
+        .regex(/^\d{10}$/, { message: "Phone number must be exactly 10 digits" }),
 });

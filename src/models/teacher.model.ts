@@ -1,4 +1,4 @@
-import { Schema, model, InferSchemaType, HydratedDocument } from "mongoose";
+import { Schema, model, type InferSchemaType, type HydratedDocument } from "mongoose";
 
 const teacherSchema = new Schema(
   {
@@ -28,6 +28,7 @@ const teacherSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 

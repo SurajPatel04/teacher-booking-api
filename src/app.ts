@@ -2,6 +2,8 @@ import express, { type Application, type Request, type Response, type NextFuncti
 import { ApiError } from "./utils/apiError.utils.js";
 import { sendError } from "./utils/apiResponse.js";
 import userRoutes from "./routes/user.routes.js";
+import teacherRoutes from "./routes/teacher.routes.js";
+import sessionRoutes from "./routes/session.routes.js";
 
 const app: Application = express();
 
@@ -13,6 +15,8 @@ app.get("/health", (req: Request, res: Response) => {
 
 // Routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/teachers", teacherRoutes);
+app.use("/api/v1/sessions", sessionRoutes);
 
 // Handle 404 Not Found for unknown routes
 app.use((req: Request, res: Response, next: NextFunction) => {
